@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <title>Retail Store</title>
+ 
+ 
+ <%= csrf_meta_tags %>
+ </head>
+ <body>
+
+<%= yield %> <!-- We would also use yield here. So that it will yield corresponding layouts here. So, it will visit app/vies/store_admins and will yield home.html.erb for home method, orders.html.erb for orders method and invoice.html.erb for invoice method. -->
+
+</body>
+ </html>

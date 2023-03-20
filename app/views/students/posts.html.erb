@@ -1,0 +1,10 @@
+<h1  text> Posts </h1>
+<% @posts.each do |post| %>
+<p><strong>Student id id: </strong><%= post.student.id%> </p>
+<p><strong>post id: </strong><%= post.id%> </p>
+    <p><strong>Post : </strong><%= post.title%> </p>
+    <%= link_to  "Click here to open post comments",student_comment_path %>
+
+<% end %>
+
+

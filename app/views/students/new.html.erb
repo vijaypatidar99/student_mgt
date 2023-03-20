@@ -1,0 +1,35 @@
+<h1> Add New Student </h1>
+
+<%=form_with model: @student do |form| %>
+<div>
+<%= form.label :first_name%> <br>
+<%= form.text_field :first_name%>
+</div>
+<div>
+<%= form.label :last_name%> <br>
+<%= form.text_field :last_name%>
+</div>
+<div>
+<%= form.label :Email%> <br>
+<%= form.email_field :email%>
+</div>
+<div>
+<%= form.label :Mobile_number%> <br>
+<%= form.text_field :mob_number%>
+</div>
+<div>
+<%= form.label :Address%> <br>
+<%= form.text_field :address%>
+
+</div>
+
+
+
+
+<%=form.submit%>
+<%=button_to{ link_to 'Back to Home page', :back } %>
+
+
+
+
+<%end%>

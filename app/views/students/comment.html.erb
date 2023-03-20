@@ -1,0 +1,8 @@
+<h1  text> Comments  </h1>
+<% @comments.each do |comment| %>
+<p><strong>Post id: </strong><%= comment.post.id %> </p>
+<p><strong>Comment id: </strong><%= comment.id %> </p>
+    <p><strong>title : </strong><%= comment.title %> </p>
+    
+
+<% end %>

@@ -1,0 +1,107 @@
+<% if flash[:just_signed_up] %>
+  <p class="welcome">Welcome to our site!</p>
+<% end %>
+
+
+<%= javascript_tag "alert('All is good')" %><br>
+<%= number_to_currency(1234567890.50) %><br>
+<%= number_to_human(1234567) %><br>
+<%= strip_links('<a href="https://rubyonrails.org">Ruby on Rails</a>') %><br>
+
+
+
+<% @greeting = capture do %>
+  <p>Welcome! The date and time is <%= Time.now %></p>
+ <%= distance_of_time_in_words(Time.now, Time.now + 15.seconds) %>
+  <%= distance_of_time_in_words(Time.now, Time.now + 15.seconds, include_seconds: true) %>
+
+
+<% end %>
+
+ <%= @greeting %>
+<div class="form-label">
+<%= form_with url: "/search", method: :get do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<br>
+  <%= form.radio_button :age, "child" %><br>
+<%= form.label :age_child, "I am younger than 21" %><br>
+<%= form.radio_button :age, "adult" %><br>
+<%= form.label :age_adult, "I am over 21" %><br>
+<br><br>
+<%= form.check_box :pet_dog %>
+<%= form.label :pet_dog, "I own a dog" %>
+<%= form.check_box :pet_cat %>
+<%= form.label :pet_cat, "I own a cat" %>
+
+<br><br>
+
+
+
+
+<%= form.text_area :message, size: "70x5" %><br><br>
+<%= form.hidden_field :parent_id, value: "foo" %><br><br>
+<%= form.password_field :password %><br><br>
+<%= form.number_field :price, in: 1.0..20.0, step: 0.5 %><br><br>
+<%= form.range_field :discount, in: 1..100 %><br><br>
+<%= form.date_field :born_on %><br><br>
+<%= form.time_field :started_at %><br><br>
+<%= form.datetime_local_field :graduation_day %><br><br>
+<%= form.month_field :birthday_month %><br><br>
+<%= form.week_field :birthday_week %><br><br>
+<%= form.search_field :name %><br><br>
+<%= form.email_field :address %><br><br>
+<%= form.telephone_field :phone %><br><br>
+<%= form.url_field :homepage %><br><br>
+<%= form.color_field :favorite_color %><br><br>
+<%= form.select :city, ["Berlin", "Chicago", "Madrid", "a", "b", "c", "d", "e"] %>
+
+
+
+
+<%= form.select :city,
+                {
+                      "Europe" => [["Berlin", "BE"], ["Madrid", "MD"]],
+                      "North America" => [["Chicago", "CHI"]],
+                    },
+                selected: "CHI" %>
+<%= form.time_zone_select :time_zone %>
+
+
+
+
+</div>
+<% end %>
+
+
+<%= form_with url: "/posts/1", method: :patch do |form| %>
+  <%= form.button "Delete", formmethod: :delete, data: { confirm: "Are you sure?" } %>
+  <%= form.button "Update" %>
+<% end %>
+
+<br>
+
+
+
+<br>
+
+<%= select_year 1999, prefix: "party" %>
+
+
+
+<form accept-charset="UTF-8" action="/people/1" method="post">
+  <input name="_method" type="hidden" value="patch" />
+  <input id="person_name" name="person[name]" type="text" />
+  <input id="person_address_23_city" name="person[address][23][city]" type="text" />
+  <input id="person_address_45_city" name="person[address][45][city]" type="text" />
+</form><br>
+<input id="person_address_primary_23_city" name="person[address][primary][23][city]" type="text" value="Paris" />
+<br>
+
+<%= check_box_tag "accept" %>
+
+
+
+
+
